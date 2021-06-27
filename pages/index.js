@@ -42,7 +42,8 @@ export default function Home() {
 
   useEffect(async () => {
     const result = await axios.get("https://bpl3-api.herokuapp.com/member");
-    setData({members: result.data})
+    
+    setData({members: result.data.filter(member => member.Rank !== 0)})
   }, []);
 
   console.log(data);
